@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weatherstation</title>
+
+    <link href="css/style.css" rel="stylesheet"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="index.js"></script>
+
+</head>
+<body>
+<div class="header">
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="graph.html">Graph</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</div>
+<h3 align="middle" class="chartHeader">Verlauf in Bern</h3>
+<div id="graphBox">
+    <canvas id="weatherChart" width="754" height="377" style="display: block; box-sizing: border-box; height: 377px; width: 754px;"></canvas>
+</div>
+<script>
+    loadChart();
+</script>
+</body>
+</html>
