@@ -124,7 +124,7 @@ section {
     left: 50vw;
     transform: translate(-50%, -40%);
     padding: 0;
-    width: 60vw; /* Anpassen je nach gewünschter Breite */
+    width: calc(50vw + 20vh); /* Anpassen je nach gewünschter Breite */
 }
 
 .blobFill {
