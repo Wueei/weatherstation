@@ -119,14 +119,17 @@ section {
 }
 
 .blob {
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
     padding: 0;
-    width: 60vw;
-    transform: translate(0, -65vh);
-    left: 20vw;
+    width: 65vw; /* Anpassen je nach gewünschter Breite */
 }
 
 .blobFill {
+    width: 100%;
+    height: 100%;
 }
 
 .container {
