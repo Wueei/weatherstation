@@ -120,11 +120,11 @@ section {
 
 .blob {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 50vh;
+    left: 50vw;
     transform: translate(-50%, -40%);
     padding: 0;
-    width: 65vw; /* Anpassen je nach gewünschter Breite */
+    width: 60vw; /* Anpassen je nach gewünschter Breite */
 }
 
 .blobFill {
