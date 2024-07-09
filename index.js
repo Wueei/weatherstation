@@ -34,7 +34,7 @@ function updateWeather(data) {
         apiUrl + city + `&appid=${apiKey}`,
         function update(data) {
 
-            wind = data.wind['speed']
+            wind = (data.wind['speed'] * 3.6);
             temperature = data.main['temp'];
 
             let timecode = data['dt'];
