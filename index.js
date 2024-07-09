@@ -56,7 +56,7 @@ function updateWeather(data) {
 
             $('#location').text(data['name']);
             $('#humidity').text(data.main['humidity'] + " %");
-            $('#wind').text(data.wind['speed'] + " km/h");
+            $('#wind').text((data.wind['speed'] * 3.6) + " km/h");
             $('#temperature').text(Math.round(data.main['temp']) + "°C");
             $('#timestamp').text("Aktualisiert am " + formattedDate + " um " + formattedTime);
 
@@ -97,7 +97,7 @@ function loadChart() {
             dates.push(date.toLocaleDateString('de-DE') + ' / ' + date.toLocaleTimeString('de-DE'));
             temps.push(el.temperature.temperature);
             humidities.push(el.humidity);
-            winds.push(el.wind.speed);
+            winds.push((el.wind.speed)*3.6);
         })
 
         const chartData = {
