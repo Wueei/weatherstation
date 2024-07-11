@@ -1,6 +1,5 @@
 const apiKey = "e19eee6a386c3adf695c299157baea76";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
-let city = "bern";
 
 let wind = 0;
 let humidity = 0;
@@ -8,9 +7,11 @@ let temperature = 0;
 
 function updateCity() {
     if (document.getElementById("cityInput").value === "") {
-        city = "bern";
+        localStorage.removeItem("city");
+        localStorage.setItem("city", "bern");
     } else {
-        city = document.getElementById("cityInput").value;
+        localStorage.removeItem("city");
+        localStorage.setItem("city", document.getElementById("cityInput").value);
         document.getElementById("cityInput").value = "";
     }
     updateWeather();
@@ -19,9 +20,11 @@ function updateCity() {
 function handleKeyPress(event) {
     if (event.keyCode === 13) {
         if (document.getElementById("cityInput").value === "") {
-            city = "bern";
+            localStorage.removeItem("city");
+            localStorage.setItem("city", "bern");
         } else {
-            city = document.getElementById("cityInput").value;
+            localStorage.removeItem("city");
+            localStorage.setItem("city", document.getElementById("cityInput").value);
             document.getElementById("cityInput").value = "";
         }
         updateWeather();
@@ -30,6 +33,7 @@ function handleKeyPress(event) {
 
 
 function updateWeather(data) {
+    let city = localStorage.getItem("city");
     $.getJSON(
         apiUrl + city + `&appid=${apiKey}`,
         function update(data) {
@@ -56,7 +60,7 @@ function updateWeather(data) {
 
             $('.location').text(data['name']);
             $('#humidity').text(data.main['humidity'] + " %");
-            $('#wind').text(Math.round(data.wind['speed'] * 3.6 * 100) /100 + " km/h");
+            $('#wind').text(Math.round(data.wind['speed'] * 3.6 * 100) / 100 + " km/h");
             $('#temperature').text(Math.round(data.main['temp'] * 100) / 100 + "°C");
             $('#timestamp').text("Aktualisiert am " + localDate + " um " + localTime);
 
@@ -97,7 +101,7 @@ function loadChart() {
             dates.push(date.toLocaleDateString('de-DE') + ' / ' + date.toLocaleTimeString('de-DE'));
             temps.push(el.temperature.temperature);
             humidities.push(el.humidity);
-            winds.push(((el.wind.speed)* 3.6 * 100) /100);
+            winds.push(((el.wind.speed) * 3.6 * 100) / 100);
         })
 
         const chartData = {
@@ -137,3 +141,14 @@ function loadChart() {
     })
 }
 
+function loadDetails() {
+    let city = localStorage.getItem("city");
+    $.getJSON(
+        apiUrl + city + `&appid=${apiKey}`,
+        function updateDetails(data) {
+            $('.item2').text(localStorage.getItem("city"));
+            $('.item4').text(Math.round(data.main['temp'] * 100) / 100 + "°C");
+            $('.item6').text(Math.round(data.main['feels_like'] * 100) / 100 + "°C");
+        }
+    );
+}

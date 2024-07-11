@@ -215,7 +215,6 @@ section {
 
 #grid-container {
     display: grid;
-    column-gap: 50px;
 }
 
 .item1 {
@@ -226,13 +225,29 @@ section {
 }
 
 .item2 {
+    font-size: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 .item3 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    font-size: 3vh;
+}
+
+.item4 {
+    font-size: 3vh;
+}
+
+.item5 {
+    font-size: 3vh;
+}
+
+.item6 {
+    font-size: 3vh;
 }

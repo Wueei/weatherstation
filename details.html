@@ -6,13 +6,23 @@
     <title>Weatherstation</title>
     <link rel="icon" type="image/x-icon" href="weather.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
     <link href="style.css" rel="stylesheet"/>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
 <div id="grid-container">
-    <div class="item1" align="middle">--To be added in the future--</div>
-    <div class="item2"></div>
-    <div class="item3"></div>
+    <div class="item1" align="middle"><h1>Additional Informations about:</h1></div>
+    <div class="item2">Uganda</div>
+    <div class="item3">Current Temperature</div>
+    <div class="item4">--°C</div>
+    <div class="item5">Feels like</div>
+    <div class="item6">--°C</div>
 
 </div>
 
@@ -20,5 +30,10 @@
 <div class="bottom-right-nav">
     <a href="index.html">Back</a>
 </div>
+
+<script>
+    setInterval(loadDetails, 120000);
+    loadDetails();
+</script>
 </body>
 </html>
