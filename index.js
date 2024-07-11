@@ -35,30 +35,30 @@ function updateWeather(data) {
         function update(data) {
 
             wind = (data.wind['speed'] * 3.6);
-            temperature = data.main['temp'];
+            temperature = Math.round(data.main['temp'] * 100) / 100;
 
             let timecode = data['dt'];
             let currentDate = new Date(timecode * 1000);
 
-            function pad(num) {
-                return num < 10 ? '0' + num : num;
-            }
+            let dateOptions = {
+                year: 'numeric', month: '2-digit', day: '2-digit'
+            };
 
-            let year = currentDate.getUTCFullYear();
-            let month = pad(currentDate.getUTCMonth() + 1);
-            let day = pad(currentDate.getUTCDate());
-            let hours = pad(currentDate.getUTCHours());
-            let minutes = pad(currentDate.getUTCMinutes());
-            let seconds = pad(currentDate.getUTCSeconds());
+            let timeOptions = {
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: false
+            };
 
-            let formattedDate = `${day}-${month}-${year}`;
-            let formattedTime = `${hours}:${minutes}:${seconds}`;
+            // Formatierte lokale Zeit und Datum
+            let localDate = currentDate.toLocaleDateString('de-CH', dateOptions);
+            let localTime = currentDate.toLocaleTimeString('de-CH', timeOptions);
 
-            $('#location').text(data['name']);
+
+            $('.location').text(data['name']);
             $('#humidity').text(data.main['humidity'] + " %");
             $('#wind').text(Math.round(data.wind['speed'] * 3.6 * 100) /100 + " km/h");
-            $('#temperature').text(Math.round(data.main['temp']) + "°C");
-            $('#timestamp').text("Aktualisiert am " + formattedDate + " um " + formattedTime);
+            $('#temperature').text(Math.round(data.main['temp'] * 100) / 100 + "°C");
+            $('#timestamp').text("Aktualisiert am " + localDate + " um " + localTime);
 
             let blobElements = document.querySelectorAll(".blobFill");
 

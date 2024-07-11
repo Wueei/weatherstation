@@ -23,7 +23,7 @@
     <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="graph.html">Graph</a>
-        <a href="contact.html">Contact</a>
+        <a href="guide.html">Guide</a>
     </nav>
     <div class="locationSearch">
         <input id="cityInput" type="text" placeholder="enter city name" spellcheck="false" onkeypress="handleKeyPress(event)">
@@ -33,7 +33,7 @@
 
 <div class="container">
     <div>
-        <h3 align="middle" id="location">
+        <h3 align="middle" class="location">
             Bern
         </h3>
     </div>
@@ -125,9 +125,14 @@
     </div>
 </section>
 
-<div class="Fusszeile">
+<footer class="Fusszeile">
     <h4 id="timestamp">Aktualisiert am --.--.---- um --:--:--</h4>
+</footer>
+
+<div class="bottom-right-nav">
+    <a href="details.html">Details</a>
 </div>
+
 </body>
 <script>
     setInterval(updateWeather, 120000);
