@@ -1,5 +1,6 @@
 const apiKey = "e19eee6a386c3adf695c299157baea76";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+localStorage.setItem("city", "bern");
 
 let wind = 0;
 let humidity = 0;
