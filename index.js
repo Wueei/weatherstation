@@ -5,7 +5,7 @@ let wind = 0;
 let humidity = 0;
 let temperature = 0;
 
-if(localStorage.getItem("citySet") === null) {
+if(!localStorage.getItem('citySet')) {
     localStorage.setItem("city", "bern");
     localStorage.setItem("citySet", "true");
 }
