@@ -1,18 +1,24 @@
 const apiKey = "e19eee6a386c3adf695c299157baea76";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
-localStorage.setItem("city", "bern");
 
 let wind = 0;
 let humidity = 0;
 let temperature = 0;
 
+if(localStorage.getItem("citySet") === false) {
+    localStorage.setItem("city", "bern");
+    localStorage.setItem("citySet", "true");
+}
+
 function updateCity() {
     if (document.getElementById("cityInput").value === "") {
         localStorage.removeItem("city");
         localStorage.setItem("city", "bern");
+        localStorage.setItem("citySet", "true");
     } else {
         localStorage.removeItem("city");
         localStorage.setItem("city", document.getElementById("cityInput").value);
+        localStorage.setItem("citySet", "true");
         document.getElementById("cityInput").value = "";
     }
     updateWeather();
@@ -23,9 +29,11 @@ function handleKeyPress(event) {
         if (document.getElementById("cityInput").value === "") {
             localStorage.removeItem("city");
             localStorage.setItem("city", "bern");
+            localStorage.setItem("citySet", "true");
         } else {
             localStorage.removeItem("city");
             localStorage.setItem("city", document.getElementById("cityInput").value);
+            localStorage.setItem("citySet", "true");
             document.getElementById("cityInput").value = "";
         }
         updateWeather();
@@ -63,7 +71,7 @@ function updateWeather(data) {
             $('#humidity').text(data.main['humidity'] + " %");
             $('#wind').text(Math.round(data.wind['speed'] * 3.6 * 100) / 100 + " km/h");
             $('#temperature').text(Math.round(data.main['temp'] * 100) / 100 + "°C");
-            $('#timestamp').text("Aktualisiert am " + localDate + " um " + localTime);
+            $('#timestamp').text("Updated on " + localDate + " at " + localTime);
 
             let blobElements = document.querySelectorAll(".blobFill");
 
@@ -99,7 +107,7 @@ function loadChart() {
     fetch("https://weather.hauri.dev/api/v1/weather").then(response => response.json()).then(data => {
         data.forEach(el => {
             let date = new Date(el.timestamp);
-            dates.push(date.toLocaleDateString('de-DE') + ' / ' + date.toLocaleTimeString('de-DE'));
+            dates.push(date.toLocaleDateString('de-CH') + ' / ' + date.toLocaleTimeString('de-CH'));
             temps.push(el.temperature.temperature);
             humidities.push(el.humidity);
             winds.push(((el.wind.speed) * 3.6 * 100) / 100);
@@ -150,6 +158,8 @@ function loadDetails() {
             $('.item2').text(localStorage.getItem("city"));
             $('.item4').text(Math.round(data.main['temp'] * 100) / 100 + "°C");
             $('.item6').text(Math.round(data.main['feels_like'] * 100) / 100 + "°C");
+            $('.item8').text((new Date(data.sys['sunrise'] * 1000)).toLocaleTimeString('de-CH') + " Uhr");
+            $('.item10').text((new Date(data.sys['sunset'] * 1000)).toLocaleTimeString('de-CH') + " Uhr");
         }
     );
 }
