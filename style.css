@@ -239,11 +239,11 @@ section {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
-    border-bottom: 1px solid #4d9595;
+    border-bottom: 1px solid #5eb8b8;
 }
 .item3, .item4, .item5, .item6, .item7, .item8, .item9, .item10 {
     font-size: 3vh;
-    border-bottom: 1px solid #4D9595FF;
+    border-bottom: 1px solid #5eb8b8;
     margin: 0;
     padding: 0;
 }

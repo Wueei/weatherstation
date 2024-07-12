@@ -6,6 +6,7 @@ let humidity = 0;
 let temperature = 0;
 
 if(!localStorage.getItem('citySet')) {
+    console.log("1. time")
     localStorage.setItem("city", "bern");
     localStorage.setItem("citySet", "true");
 }
@@ -155,7 +156,7 @@ function loadDetails() {
     $.getJSON(
         apiUrl + city + `&appid=${apiKey}`,
         function updateDetails(data) {
-            $('.item2').text(localStorage.getItem("city"));
+            $('.item2').text(data['name']);
             $('.item4').text(Math.round(data.main['temp'] * 100) / 100 + "°C");
             $('.item6').text(Math.round(data.main['feels_like'] * 100) / 100 + "°C");
             $('.item8').text((new Date(data.sys['sunrise'] * 1000)).toLocaleTimeString('de-CH') + " Uhr");
