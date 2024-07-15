@@ -249,6 +249,7 @@ section {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 7;
+    grid-row-end: 8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,6 +264,8 @@ section {
     width: 1000px;
     grid-column-start: 1;
     grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 8;
 }
 
 .spacer {
