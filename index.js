@@ -161,6 +161,18 @@ function loadDetails() {
             $('.item6').text(Math.round(data.main['feels_like'] * 100) / 100 + "°C");
             $('.item8').text((new Date(data.sys['sunrise'] * 1000)).toLocaleTimeString('de-CH') + " Uhr");
             $('.item10').text((new Date(data.sys['sunset'] * 1000)).toLocaleTimeString('de-CH') + " Uhr");
+
+            let lon = data.coord['lon'];
+            let lat = data.coord['lat'];
+
+            if(marker) {
+                map.removeLayer(marker)
+            }
+            marker = L.marker([lat, lon]);
+            marker.addTo(map);
+
+            map.panTo([lat, lon]);
+
         }
     );
 }

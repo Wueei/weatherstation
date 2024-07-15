@@ -22,11 +22,12 @@
 <div class="header">
     <nav class="navbar">
         <a href="index.html">Home</a>
+        <a href="table.html">Table</a>
         <a href="graph.html">Graph</a>
-        <a href="guide.html">Guide</a>
     </nav>
     <div class="locationSearch">
-        <input id="cityInput" type="text" placeholder="enter location" spellcheck="false" onkeypress="handleKeyPress(event)">
+        <input id="cityInput" type="text" placeholder="enter location" spellcheck="false"
+               onkeypress="handleKeyPress(event)">
         <button onclick="updateCity()"><img src="search.svg"></button>
     </div>
 </div>
@@ -128,11 +129,6 @@
 <footer class="Fusszeile">
     <h4 id="timestamp">Updated on --.--.---- at --:--:--</h4>
 </footer>
-
-<div class="bottom-right-nav">
-    <a href="details.html">Details</a>
-</div>
-
 </body>
 <script>
     setInterval(updateWeather, 120000);

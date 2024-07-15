@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Weatherstation</title>
+    <link rel="icon" type="image/x-icon" href="weather.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link href="style.css" rel="stylesheet"/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<div class="header">
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="table.html">Table</a>
+        <a href="graph.html">Graph</a>
+    </nav>
+</div>
+<div id="grid-container">
+    <div class="item2">----</div>
+    <div class="item3">Current Temperature</div>
+    <div class="item4">--°C</div>
+    <div class="item5">Feels like</div>
+    <div class="item6">--°C</div>
+    <div class="item7">Sunrise</div>
+    <div class="item8">--Uhr</div>
+    <div class="item9">Sunset</div>
+    <div class="item10">--Uhr</div>
+    <div class="spacer"></div>
+    <div class="item-map-container">
+        <div id="map">Map goes here</div>
+    </div>
+</div>
+
+
+<script>
+    setInterval(loadDetails, 120000);
+    loadDetails();
+
+    var map = L.map('map').setView([46.9481, 7.4474], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    marker = L.marker([46.9481, 7.4474]);
+    marker.addTo(map);
+
+</script>
+</body>
+</html>

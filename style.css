@@ -203,6 +203,12 @@ section {
     margin: 0;
 }
 
+.chartUnderheader {
+    padding: 0;
+    margin: 0;
+    font-size: 1vh;
+}
+
 #graphBox {
     padding: 0;
     margin: 0;
@@ -220,15 +226,6 @@ section {
     margin-right: 50px;
 }
 
-.item1 {
-    font-size: 5vh;
-    margin: 0;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    top: 0;
-    background-color: #FFFFFF;
-    color: #70d3d3;
-}
 .item2 {
     font-size: 4vh;
     display: flex;
@@ -246,4 +243,29 @@ section {
     border-bottom: 1px solid #5eb8b8;
     margin: 0;
     padding: 0;
+}
+
+.item-map-container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 1000px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.spacer {
+    height: 50px;
+    grid-row-start: 6;
+    grid-row-end: 7;
 }
